@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/index.css">
+    <script src="correlacao.js"></script>
+    <link rel="stylesheet" href="CSS/correlacao.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div> Estatistica</div>
+        <div class = "voltar"> 
+                <a href="tela_principal.html">Voltar </a></div>
+    </header>
+
+    <section >
+            <label for="">Valores Independentes (X)</label>
+            <input type="text" id = "independente">
+            <label for="">Valores Dependentes (Y)</label>
+            <input type="text" id = "dependente">
+            <div>
+                <button onclick = "correlacao()"> Calcular </button>
+            </div>
+            <p id = "resultado">
+                <!-- tabela e calculos da correlação-->
+            </p>
+    </section>
+    
+    
+    <footer>
+        <ul>
+            <li>
+                &copy;Copy Right
+            </li>
+            <li>
+                Sobre Nós
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

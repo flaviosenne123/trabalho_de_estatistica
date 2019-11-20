@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/probabilidade.css">
+    <script src="Estatistica_Probabilidade.js"></script>
+    <title>Document</title>
+    <script>
+        function Selecao() {
+            let selecao = document.getElementById("distribuicao")
+            var nav = window.document.getElementById('nav')
+            var nav_uniforme = window.document.querySelector('nav.Uniforme')
+            var nav_normal = window.document.querySelector('nav.Normal')
+            var nav_binominal = window.document.querySelector('nav.Binominal')
+            if (selecao.value == "vazio") {
+                document.getElementById("saida_uniforme").innerHTML = ''
+                nav.style.display = 'flex';
+                nav_uniforme.style.display = 'none';
+                nav_normal.style.display = 'none';
+                nav_binominal.style.display = 'none';
+            }
+            if (selecao.value == "binominal") {
+                document.getElementById("saida_uniforme").innerHTML = ''
+                nav.style.display = 'none';
+                nav_uniforme.style.display = 'none';
+                nav_normal.style.display = 'none';
+                nav_binominal.style.display = 'block';
+            }
+            if (selecao.value == "normal") {
+                document.getElementById("saida_uniforme").innerHTML = ''
+                nav.style.display = 'none';
+                nav_uniforme.style.display = 'none';
+                nav_binominal.style.display = 'none';
+                nav_normal.style.display = 'block';
+            }
+            if (selecao.value == "uniforme") {
+                nav.style.display = 'none';
+                nav_binominal.style.display = "none";
+                nav_normal.style.display = "none";
+                nav_uniforme.style.display = "block";
+            }
+        }
+    </script>
+
+</head>
+
+<body onload = "Selecao()">
+    <header>
+        <div> Estatistica</div>
+        <div class = "voltar"> 
+           <a href="tela_principal.html">Voltar </a></div>
+    </header>
+
+    <section>
+        <p>
+            <select name="didtribuicao" id="distribuicao" onchange="Selecao()">
+                <option value="vazio">Escolha uma opção</option>
+                <option value="binominal">Binomial</option>
+                <option value="normal" >Normal</option>
+                <option value="uniforme">Uniforme</option>
+            </select>
+        </p>
+
+        <nav class='nav' id="nav">
+            <!-- Carousel / slide de imagens-->
+            <div class="slider">
+                <div id="img">
+                    <img src="imagens/tabela_gauss.png" alt="">
+                </div>
+                <!-- Texto em baixo da imagem-->
+                
+
+                <!-- Botões para controle do slide-->
+                <ul onclick="sair()">
+                    <li>
+                        <button class="prew" onclick="prew()">-</button>
+                    </li>
+                    <li>
+                        <button class="next" onclick="next()">+</button>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- Area da Distribuição Binominal-->
+        <nav class="Binominal" style="display: none;">
+            <p>
+                <input type="number" placeholder="Elemento" id = "elemento_binominal">
+            </p>
+            <p>
+                <input type="number" placeholder="Sucesso (p)" id = "sucesso">
+            </p>
+            <p>
+                <input type="number" placeholder="Fracasso (q)" id = 'fracasso'>
+            </p>
+            <p>
+                <input type="text" placeholder="Evento (k)" id = 'evento'>
+            </p>
+            <p>
+                <input type = 'button'class = "button_uniforme" onclick="binominal()" value = "Calcular">
+            </p>
+            <div>
+                
+                <p id="saida_binominal">
+            </div>
+
+            </p>
+        </nav>
+        <!-- Area da Distribuição Normal-->
+        <nav class="Normal" style="display: none;">
+            <p>
+                <input type="text" placeholder="Elemento" id = "elemento_normal">
+            </p>
+     
+            <p>
+                <input type="number" placeholder="Media" id = "media_normal">
+            </p>
+            <p>
+                <input type="number" placeholder="Desvio Padrão" id = "desvio_normal">
+            </p>
+            <p>
+                <select name="opcao_Normal" id="opcao_Normal">
+                    <option value="maior_normal">Maior que</option>
+                    <option value="menor_normal">Menor que</option>
+                    <option value="entre_normal">Entre</option>
+                </select>
+            </p>
+            <p>
+                <input type = 'button'class = "button_uniforme" onclick="normal()" value = "Calcular">
+            </p>
+            <div>
+                <p id="saida_normal">
+            </div>
+            </p>
+        </nav>
+        <!-- Area da Distribuição Uniforme-->
+        <nav class="Uniforme" style="display: none;">
+            <p>
+                <input type="text" placeholder="Elemento" id="elemento_uniforme">
+            </p>
+            <p>
+                <input type="number" placeholder="Ponto Mínimo" id="ponto_minimo_uniforme">
+            </p>
+            <p>
+                <input type="number" placeholder="Ponto Max" id="ponto_maximo_uniforme">
+            </p>
+            <p>
+                <select name="opcao_uniforme" id="opcao_uniforme">
+                    <option value="maior_uniforme">Maior que</option>
+                    <option value="menor_uniforme">Menor que</option>
+                    <option value="entre_uniforme">Entre</option>
+                </select>
+            </p>
+            <p>
+                <input type = 'button'class = "button_uniforme" onclick="uniforme()" value = "Calcular">
+            </p>
+            <div>            
+                <p id="saida_uniforme"></p>
+            </div>
+        </nav>
+    </section>
+    <footer>
+        <ul>
+            <li>
+                &copy;Copy Right
+            </li>
+            <li>
+                Sobre Nós
+            </li>
+        </ul>
+    </footer>
+</body>
+
+<script>
+    let slider_content = document.getElementById('img');
+    let image = ['imagens/formula.GIF','imagens/formulaBinomial.PNG','imagens/distro_normal.jpg', 'imagens/Distribuição+Uniforme.jpg', 'imagens/tabela_gauss.png'];
+
+    let x = 0;
+
+    function slide() {
+        if (x < image.length) {
+            x = x + 1;
+        } else {
+            x = 1;
+        }
+        let result = `<img src ="${image[x - 1]}"> `;
+        slider_content.innerHTML = result;
+    }
+
+    // auto slide
+    setInterval(slide, 7000);
+    // console.log(image.length)
+
+    next = () => {
+        if (x < image.length) {
+            x = x + 1;
+        } else {
+            x = 1;
+        }
+        let result = `<img src ="${image[x - 1]}"> `;
+        console.log("x: ", x);
+        slider_content.innerHTML = result;
+    }
+    prew = () => {
+        x = 3
+        if (x <= image.length) {
+            x = x - 2
+        } else {
+            x = 2
+        }
+
+        let result = `<img src ="${image[x - 1]}"> `;
+        console.log("x: ", x);
+        slider_content.innerHTML = result;
+    }
+</script>
+
+</html>

@@ -1,0 +1,64 @@
+body{
+    margin: 0 auto;
+}
+section.tela_inicial{
+    position: static;
+    margin: auto;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+section.tela_inicial div{
+    /* background: rgb(10, 7, 7); */
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    font-size: 25pt;
+    border: solid 3px rgb(121, 0, 0);
+    border-start-start-radius: 50px;
+    border-end-end-radius: 50px;
+    margin:0;
+    max-width: 70%;
+}
+@media(max-width: 860px){
+    section.tela_inicial{
+        grid-template-columns: repeat(2, 0.8fr);
+    }
+    section.tela_inicial div{
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+}
+@media(max-width: 450px){
+    section.tela_inicial{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    section.tela_inicial  div{
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+}
+div a label {
+    text-decoration: none;
+    color: black;
+    font-weight: 100px;
+    position: relative;
+    display: grid;
+    width: 90%;
+    margin: 60% auto;
+    padding: 10px;
+    justify-items: center;
+    text-align:center;
+}
+section.tela_inicial div:hover {
+    box-shadow: 2px 1px 10px gray;
+    background: linear-gradient(to top, rgb(209, 1, 1), rgb(77, 1, 1));
+    border-color: rgb(226, 226, 226);
+    
+}
+a label:hover{
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+}

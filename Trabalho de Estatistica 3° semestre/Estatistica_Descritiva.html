@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="Estatistica_Discreta.js"></script>
+    <!-- <script src="teste.js"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/descritiva.css">
+    <title>Estatistica</title>
+</head>
+
+
+<body onload="carregar()">
+    <header>
+        <div onclick='sair()'> Estatistica</div>
+        <div class = "voltar"> 
+                <a href="tela_principal.html">Voltar </a></div>
+    </header>
+    <!-- entrada de dados -->
+    <section>
+
+        <p>
+            <select name="tipo">
+                <option value="Amostra">População</option>
+                <option value="Amostra">Amostra</option>
+            </select>
+        </p>
+        <p>
+            <input type="text" id='nome' placeholder="Nome da Variavel">
+        </p>
+        <p>
+            <input type="text" id='numero' placeholder="Elementos">
+        </p>
+        <p class="medidas_separatrizes">
+            <select name="medidas_separatrizes" id="medidas_separatrizes">
+                <option value="vazio"> ... </option>
+                <option value="Quantil">Quartil</option>
+                <option value="Quintil">Quintil</option>
+                <option value="Deal">Decil</option>
+                <option value="Porcentil">Porcentil</option>
+            </select>
+            <br>
+            <input type="range"><span>50</span>
+        </p>
+        <p>
+            <select name="tipo" id="tipo">
+                <option value="qualitativa" id='qual'>Qualitativa</option>
+                <!--  a qualitativa está sem id ajusta e ve se o erro se resolve. ass. maria, depois diz o que virou-->
+                <option value="quantitativa" id='quant'>Quantitativa</option>
+            </select>
+        </p>
+
+        <p>
+            <button onclick='inicio()'>Calcular</button>
+        </p>
+    </section>
+
+    <div class = "resultado_descritiva">
+            <!-- Tabela descritiva Quantitativa -->
+        <p id='saida'></p>
+        <!-- Tabela descritiva Quantitativa Continua -->
+        <p id='saida2'></p>
+
+    </div>
+
+
+    <footer onclick="sair()">
+        <ul>
+            <li>
+                &copy;Copy Right
+            </li>
+            <li>
+                Sobre Nós
+            </li>
+        </ul>
+    </footer>
+</body>
+
+<script>
+
+
+</script>
+
+</html>

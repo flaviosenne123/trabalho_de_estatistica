@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/index.css">    
+    <script src="cadastro_e_login.js"></script>
+    <title>Estatistica</title>
+</head>
+
+
+<body onload='slide()'>
+    <!-- Menu s-->
+    <header>
+        <div onclick='sair()'> Estatistica</div>
+        <ul>
+            <!-- <li>
+                <a href="#" onclick='menu_cadastrar(), sair()' >Cadastrar</a>
+            </li> -->
+            <li>
+                <a href="#" onclick='emcima()'>Entrar</a>
+            </li>
+        </ul>
+    </header>
+
+    <nav class='nav'>
+        <!-- Carousel / slide de imagens-->
+        <div class="slider" onclick="sair()">
+            <div id="img">
+                <img src="1.jpg" alt="">
+            </div>
+            <!-- Texto em baixo da imagem-->
+            <div class='texto'>
+                Texto
+            </div>
+
+            <!-- Botões para controle do slide-->
+            <ul onclick="sair()">
+                <li>
+                    <button class="prew" onclick="prew()">-</button>
+                </li>
+                <li>
+                    <button class="next" onclick="next()">+</button>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Caixa de Login -->
+        <div class='content' id='conteudo'>
+            <input type="username" placeholder="Usuario" id='usuario'>
+            <input type="password" placeholder="Senha" id='senha'>
+            <a href="#" onclick='menu_cadastrar(), sair()' >Criar conta</a>
+            <input class='botao' type="button" value="Entar" id = "botao_login" onclick = "entrar()">
+        </div>
+
+        <!-- Div do cadastro -->
+        <div class = 'cadastro' id = 'cadastro'>
+            <input type="text" placeholder = 'nome' id = 'nome'>
+            <input type="text" placeholder = 'email' id = 'email'>
+            <input type="user" placeholder = 'usuario' id = 'user'>
+            <input type="password" placeholder = 'senha' id = 'senha_cadastro'>
+            <input type="password" placeholder = 'confirmar senha' id = 'senha2'>
+            <p>
+                <button id = 'botao' onclick = "cadastro()"> Cadastrar </button>
+            </p>
+            <p class = 'sair' onclick="sair_cadastro()"> X </p>
+        </div>
+        <p id = 'teste_tabela'>
+
+        </p>
+
+        <!-- <p id='saida'>
+            Resultado AQUI
+        </p> -->
+
+    </nav>
+
+    <footer onclick="sair()">
+        <ul>
+            <li>
+                &copy;Copy Right
+            </li>
+            <li>
+                Sobre Nós
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        // abrir div do cadastro
+        var div_cadastro = window.document.getElementById('cadastro')
+        var div_login = window.document.getElementById('conteudo')
+        var body = window.document.querySelector('body')
+        
+        function menu_cadastrar() {
+            div_cadastro.style.display = 'block';
+            body.style = "background-color: rgba(0, 0, 0, 1);"
+        }
+        function sair_cadastro(){
+            div_cadastro.style.display = 'none';
+            body.style = "background-color: default;"
+        }
+        
+       
+
+        function emcima() {
+            if(div_cadastro.style.display == 'block'){
+            div_login.style.display = 'none';
+            }else{
+            div_login.style.display = 'grid';
+            }
+        }
+
+        function sair() {
+            div_login.style.display = 'none';
+        }
+
+
+        //efeito do login
+
+
+
+
+        // Efeito Carrousel
+
+        let slider_content = document.getElementById('img');
+        let image = ['imagens/desvio.jpg', 'imagens/media_desvio.jpg', 'imagens/sepatratrizes.jpg', 'imagens/populacao_amostra.PNG'];
+
+        let x = 0;
+
+        function slide() {
+            if (x < image.length) {
+                x = x + 1;
+            } else {
+                x = 1;
+            }
+            let result = `<img src ="${image[x - 1]}"> `;
+            slider_content.innerHTML = result;
+        }
+
+        // auto slide
+        setInterval(slide, 7000);
+        // console.log(image.length)
+
+        next = () => {
+            if (x < image.length) {
+                x = x + 1;
+            } else {
+                x = 1;
+            }
+            let result = `<img src ="${image[x - 1]}"> `;
+            console.log("x: ", x);
+            slider_content.innerHTML = result;
+        }
+        prew = () => {
+            x = 3
+            if (x <= image.length) {
+                x = x - 2
+            } else {
+                x = 2
+            }
+
+            let result = `<img src ="${image[x - 1]}"> `;
+            console.log("x: ", x);
+            slider_content.innerHTML = result;
+        }
+
+
+    </script>
+</body>
+
+</html>

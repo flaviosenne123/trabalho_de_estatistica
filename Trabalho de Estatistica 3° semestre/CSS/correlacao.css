@@ -1,0 +1,93 @@
+section{
+    margin-top: 20px;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+}
+label {
+    font-size: 24pt;
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+}
+input{
+    font-size: 24pt;
+    margin: 0 auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 80%;
+    border: none;
+    border-bottom: double black;
+}
+div button{
+    position: relative;
+    display: block;
+    background: black;
+    width: 80%;
+    margin: 0 auto;
+}
+div button:hover{
+    background: white;
+    border: solid black;
+    color: black;
+}
+div.voltar{
+    width: 8%;
+    height: 30px;
+    margin: auto 0;
+    border-radius: 50%;
+    padding: 10px;
+    background:none;
+    border: solid red;
+    text-align-last: center;
+}
+div.voltar a{
+    text-decoration: none;
+    color: white;
+}
+div.voltar:hover{
+    border: solid white;
+}
+table{
+    margin: 20px auto;
+    border-end-end-radius: 30px;
+    border: double;
+    border-start-start-radius: 30px;
+    padding: 10px;
+    text-align-last: center;
+}
+table tr td{
+    padding: 10px;
+}
+.final {
+    color: red;
+}
+table.tabela2{
+    border: none;
+    margin: 20px auto;
+    /* border-end-end-radius: 30px; */
+    /* border: double; */
+    /* border-start-start-radius: 30px; */
+    padding: 10px;
+    text-align-last: center;
+}
+table.tabela2 td{
+    border: solid;
+}
+input.tabela{
+    display: inline;
+    font-size: 10pt;
+    width: 10%;
+}
+button.projecao{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background: black;
+}
+button.projecao:hover{
+    color: black;
+    border: solid black;
+    background: white;
+}

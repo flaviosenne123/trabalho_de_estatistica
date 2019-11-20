@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans Condensed', sans-serif;
+    
+}
+
+a{
+    text-decoration: none;
+}
+header{
+    font-size: 20pt;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    color: white;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 10px;
+    background: linear-gradient(to right, rgb(155, 7, 7), rgb(73, 18, 18));
+}
+header div{
+    padding: 10px;
+    width: 90%;}
+
+@media(max-width: 820px){
+    header div {
+        width: 90%;
+    }
+}
+ul{
+    list-style: none;
+}
+ul li{
+    display: inline-block;
+    padding: 10px;
+}
+ul li a{
+    text-decoration: none;
+    color: white
+}
+.texto {
+    position: absolute;
+    left: center;
+    display: block;
+    bottom: 10px;
+    color: white;
+    font-size: 14pt;
+}
+a:hover{
+    text-decoration: underline;
+    
+}
+
+nav{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 100px);
+    justify-content: center;
+}
+
+.slider{
+    position:relative;
+    display: block;
+    width: 720px;
+    height: 420px;
+    margin: 30px auto;
+    border: 10px solid white;
+    overflow: hidden;
+    box-shadow:0px 0px 5px 2px;
+}
+.texto {
+    position: absolute;
+    text-align: center;
+    width: 100%
+}
+img{
+    position: absolute;
+    width: 50%;
+    min-width: 700px;
+    max-height: 420px;
+}
+.slider ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+.slider li{
+    display: inline-block;
+}
+button{
+    padding: 15px;
+    margin: -20px;
+    border: none;
+    background: rgba(51, 119, 255, 0.1);
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top:45%;
+    display: flex;
+}
+button:hover{
+    background-color: rgba(51, 119, 255, 1);
+}
+
+
+.next {
+    position: absolute;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.prew{
+    border-radius: 0px 10px 10px 0px;
+}
+
+.content {
+    background-color:  rgb(185, 14, 14);
+    /* background-color:  rgb(185, 14, 14, 0.5); */
+    border-end-end-radius: 10px;
+    border-end-start-radius: 10px;
+    position: absolute;
+    right: 0px;
+    display: none;
+    justify-items: center;
+    margin: 0;
+    padding: 5px 10px;
+    height: 180px;
+    min-width: 15%;
+    text-align: center;
+}
+.content input{
+    color: white;
+    font-size: 18pt;
+    font-family: sans-serif;
+    margin: 5px;
+    width: 90%;
+    height: 20px;
+    border: none;
+    border-color: none;
+    background: none;
+    border-bottom: 2px rgb(12, 7, 7) solid;
+}
+.content a{
+    font-weight: bold;
+    display: block;
+    font-size: 18pt;
+    color: white;
+}
+.content .botao{
+    position: relative;
+    margin-bottom: 10px;
+    background: black;
+    color: white;
+    text-align: center;
+    border-radius:12px;
+    border: none;
+    width: 60%;
+    height: 40px;
+}
+.content .botao:hover{
+    color: black;
+    border: solid black;
+    background-color: white;
+}
+
+.cadastro{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100vh - 100px);
+    text-align: center;
+    overflow: hidden;
+}
+.cadastro input{
+    font-size: 24pt;
+    color: white;
+    font-family: sans-serif;
+    margin: 15px;
+    border: none; 
+    background-color: rgba(0, 0, 0, 0.0);
+    border-bottom: solid white;
+    width: 60%;
+}
+.cadastro p.sair {
+    position: absolute;
+    color: white;
+    top: 0;
+    width: 10px;
+    font-size: 18pt;
+    padding: 10px;
+    background: rgba(51, 119, 255, 0.1);
+}
+.cadastro p.sair:hover {
+    background-color: rgba(51, 119, 255, 1);
+}
+.cadastro button {
+    position: relative;
+    margin-top: 20px;
+    left: 50%;
+    top: 70%;
+    cursor: grab;
+}
+.resultado_descritiva{
+    position: relative;
+    margin: auto;
+    text-align: justify;
+    width: 80%;
+    /* background-color: orange; */
+}
+.resultado_descritiva p{
+    display: block;
+    overflow: auto;
+    position: relative;
+}
+
+
+footer{
+    background: linear-gradient(to right, rgb(155, 7, 7), rgb(73, 18, 18));
+    display: flex;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 50px;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    height: 50px;
+    font-size: 20pt;
+}
