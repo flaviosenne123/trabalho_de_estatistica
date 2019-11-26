@@ -47,97 +47,129 @@ function binominal() {
     var vetor = evento.split(";")
     var desvio_padrao = 0
     var analise_combinatoria = 0
-    var denominador = Number(elemento - vetor[0])
+    var denominador = []
+    var denominadorMenos = []
     var probabilidade_binominal = 0;
     var aux_elemento = Number(elemento)
-    var n = 0;
+    var aux_evento = 0
+    var n = elemento;
 
     console.log("sucesso ", sucesso)
     console.log("elemento ", elemento)
-    console.log("evento: ", vetor[0])
+    // console.log("evento: ", vetor[0])
+    console.log('ene 1', n)
 
-    if (vetor.length == 1) {
-        if (elemento < 0) {
-            alert("Valor invalido");
-        }
-        else if (elemento == 0) {
-            alert("valor invalido");
-        }
-        n = 1
-        if (elemento == vetor[0]) {
-            n = 1
-        }
-        while (elemento > vetor[0]) {
-            n *= elemento;
-            elemento = elemento - 1
-            console.log(`rodada ${elemento} `)
-            console.log(`n na ${elemento}° posicao vale ${n}`)
-        }
-        var aux = 1;
-        console.log("--------------------------")
-        console.log("denominador ", denominador)
-        while (denominador > 1) {
-            aux *= denominador;
-            denominador = denominador - 1
-            console.log(`rodada ${denominador} `)
-            console.log(`n na ${denominador}° posicao vale ${aux}`)
-        }
-        console.log("denominador final: ", aux)
-
-        analise_combinatoria = Number(n / aux).toFixed(0)
-        media = (aux_elemento * sucesso)
-        desvio_padrao = ((aux_elemento * sucesso * fracasso) ** (1 / 2))
-
-        probabilidade_binominal = analise_combinatoria * (sucesso ** (vetor[0])) * (fracasso ** (aux_elemento - vetor[0]))
-
-        console.log("aux elemento ", aux_elemento)
-        console.log("media ", media)
-        console.log("desvio padrao ", `${aux_elemento} X ${sucesso} X ${fracasso} ^ ${1 / 2}`)
-        console.log("Analise Combinatoria: ", analise_combinatoria)
-
+    // fatorial do elemento
+    while(elemento > 1){
+        n *= (elemento - 1) 
+        elemento--
     }
-    console.log("vetor ", vetor)
-    if (vetor.length > 1) {
-        for (let i = 0; i < vetor.length; i++) {
-            // caso o evento seja igual a zero
-            if (vetor[i] == 0) {
-                console.log("sucesso ", (sucesso ** vetor[i]))
-                console.log("fracasso ", fracasso ** (aux_elemento - vetor[i]))
-                probabilidade_binominal += (sucesso ** vetor[i]) * (fracasso ** (aux_elemento - vetor[i]))
-                console.log(i + " parte da probabilidade = " + probabilidade_binominal)
-            }
-            // caso o evento seja igual a um
-            else if (vetor[i] == 1) {
-                probabilidade_binominal += aux_elemento * (sucesso ** vetor[i]) * (fracasso ** (aux_elemento - vetor[i]))
-                console.log(i + " parte da probabilidade = " + probabilidade_binominal)
-            }
-            // caso o evento seja maior que 1
-            else if (vetor[i] > 1) {
-                // fazer a analise combinatoria
-                n = 1
-                elemento = aux_elemento
-                // fatorial do elemento (valor do n) até econtrar o valor do evento
-                while (elemento > vetor[0]) {
-                    n *= elemento;
-                    elemento = elemento - 1
-                }
-                denominador = (aux_elemento - vetor[i])
-                aux = 1
-                while (denominador > 1) {
-                    aux *= denominador;
-                    denominador = denominador - 1
-                }
-                analise_combinatoria = (n / aux) / vetor[i]
-                probabilidade_binominal += analise_combinatoria * (sucesso ** vetor[i]) * (fracasso ** (aux_elemento - vetor[i]))
-
-                console.log("sucesso ", (sucesso ** vetor[i]))
-                console.log("fracasso ", (fracasso ** (aux_elemento - vetor[i])))
-                console.log("analise ", analise_combinatoria)
-                console.log(i + " parte da probabilidade = " + probabilidade_binominal)
-            }
-
+    // fatorial do evento
+    for(let i =0; i < vetor.length; i++){
+        aux_evento = vetor[i]
+        if(vetor[i] == 0){
+            analise_combinatoria = 1
         }
+        else if(vetor[i] == aux_elemento){
+            analise_combinatoria = 1
+        }
+        else{
+            while(vetor[i] > 1){
+                aux_evento *= (vetor[i] -1)
+                vetor[i] --
+            }
+            denominador[i] = aux_evento
+            denominadorMenos =(aux_elemento - vetor[i])
+            analise_combinatoria += (n / (denominador[i] * denominadorMenos))
+        }
+        
     }
+    // fatorial do evento part 2
+    
+    console.log('denominadores  ',denominador)
+    console.log('denominadores menos ',denominadorMenos)
+    console.log('N: ',n)
+    console.log('analise: ',analise_combinatoria)
+    //     if (elemento < 0) {
+    //         alert("Valor invalido");
+    //     }
+    //     else if (elemento == 0) {
+    //         alert("valor invalido");
+    //     }
+    //     n = 1
+    //     if (elemento == vetor[0]) {
+    //         n = 1
+    //     }
+    //     while (elemento > vetor[0]) {
+    //         n *= elemento;
+    //         elemento = elemento - 1
+    //         console.log(`rodada ${elemento} `)
+    //         console.log(`n na ${elemento}° posicao vale ${n}`)
+    //     }
+    //     var aux = 1;
+    //     console.log("--------------------------")
+    //     console.log("denominador ", denominador)
+    //     while (denominador > 1) {
+    //         aux *= denominador;
+    //         denominador = denominador - 1
+    //         console.log(`rodada ${denominador} `)
+    //         console.log(`n na ${denominador}° posicao vale ${aux}`)
+    //     }
+    //     console.log("denominador final: ", aux)
+
+    //     analise_combinatoria = Number(n / aux).toFixed(0)
+    //     media = (aux_elemento * sucesso)
+    //     desvio_padrao = ((aux_elemento * sucesso * fracasso) ** (1 / 2))
+
+    //     probabilidade_binominal = analise_combinatoria * (sucesso ** (vetor[0])) * (fracasso ** (aux_elemento - vetor[0]))
+
+    //     console.log("aux elemento ", aux_elemento)
+    //     console.log("media ", media)
+    //     console.log("desvio padrao ", `${aux_elemento} X ${sucesso} X ${fracasso} ^ ${1 / 2}`)
+    //     console.log("Analise Combinatoria: ", analise_combinatoria)
+
+    // console.log("vetor ", vetor)
+    
+    //     for (let i = 0; i < vetor.length; i++) {
+    //         // caso o evento seja igual a zero
+    //         if (vetor[i] == 0) {
+    //             console.log("sucesso ", (sucesso ** vetor[i]))
+    //             console.log("fracasso ", fracasso ** (aux_elemento - vetor[i]))
+    //             probabilidade_binominal += (sucesso ** vetor[i]) * (fracasso ** (aux_elemento - vetor[i]))
+    //             console.log(i + " parte da probabilidade = " + probabilidade_binominal)
+    //         }
+    //         // caso o evento seja igual a um
+    //         else if (vetor[i] == 1) {
+    //             probabilidade_binominal += aux_elemento * (sucesso ** vetor[i]) * (fracasso ** (aux_elemento - vetor[i]))
+    //             console.log(i + " parte da probabilidade = " + probabilidade_binominal)
+    //         }
+    //         // caso o evento seja maior que 1
+    //         else if (vetor[i] > 1) {
+    //             // fazer a analise combinatoria
+    //             n = 1
+    //             elemento = aux_elemento
+    //             // fatorial do elemento (valor do n) até econtrar o valor do evento
+    //             while (elemento > vetor[0]) {
+    //                 n *= elemento;
+    //                 elemento = elemento - 1
+    //             }
+    //             denominador = (aux_elemento - vetor[i])
+    //             aux = 1
+    //             while (denominador > 1) {
+    //                 aux *= denominador;
+    //                 denominador = denominador - 1
+    //             }
+    //             analise_combinatoria = (n / aux) / vetor[i]
+    //             probabilidade_binominal += analise_combinatoria * (sucesso ** vetor[i]) * (fracasso ** (aux_elemento - vetor[i]))
+
+    //             console.log("sucesso ", (sucesso ** vetor[i]))
+    //             console.log("fracasso ", (fracasso ** (aux_elemento - vetor[i])))
+    //             console.log("analise ", analise_combinatoria)
+    //             console.log(i + " parte da probabilidade = " + probabilidade_binominal)
+    // 
+
+
+    
 
     console.log("Probabilidade: ", ((probabilidade_binominal) * 100).toFixed(2), "%")
     var result = `<table class = "gauss"><tr><td>Probabilidade:</td><td>${((probabilidade_binominal) * 100).toFixed(2)}%</td></tr>`
